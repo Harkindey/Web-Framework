@@ -3,6 +3,8 @@ interface UserProps {
     age?:number
 }
 
+type Callback = ()=>void
+
 
 export class User {
     constructor(private data: UserProps ){}
@@ -13,5 +15,13 @@ export class User {
 
     set (update:UserProps): void {
         Object.assign(this.data, update);
+    }
+
+    on(eventName:string, callback: Callback){
+
+    }
+
+    trigger(eventName: string){
+
     }
 }
