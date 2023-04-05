@@ -47,7 +47,7 @@ export class User {
         })
     }
 
-    fetch(id:number):void {
+    fetch():void {
         axios.get<UserProps>(`http://localhost:3000/users/${this.get('id')}`).then((response):void=>{
             this.set(response.data)
         })
