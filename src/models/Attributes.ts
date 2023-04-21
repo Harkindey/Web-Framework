@@ -10,3 +10,13 @@ export class Attributes<T> {
         Object.assign(this.data, update);
     }
 }
+
+const attrs = new Attributes<UserProps>({
+    id:5,
+    age:20,
+    name: 'dfgdgd'
+})
+
+const name = attrs.get('name');
+const age = attrs.get('age');
+const id = attrs.get('id')
