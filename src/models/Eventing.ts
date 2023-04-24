@@ -2,7 +2,7 @@ export type Callback = ()=>void
 
 export class Eventing{
     events: { [key:string]: Callback[]} = {};
-    on(eventName:string, callback: Callback): void{
+    on=(eventName:string, callback: Callback): void =>{
         {/* what i would have done
         if(this.events[eventName] === undefined){
                     this.events[eventName]=[callback]
@@ -16,7 +16,7 @@ export class Eventing{
             this.events[eventName] = handlers;
         }
     
-        trigger(eventName: string):void {
+        trigger =(eventName: string):void =>{
             const handlers = this.events[eventName];
     
             if(!handlers || handlers.length=== 0){
