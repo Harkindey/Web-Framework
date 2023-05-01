@@ -1,5 +1,7 @@
-import axios, { AxiosResponse } from "axios";
+import { Collections } from "./models/Collection"
 
-axios.get('http://localhost:3000/users').then((response: AxiosResponse)=> {
-    console.log(response.data)
+const collection = new Collections('http://localhost:3000/users')
+collection.on('change', (data)=>{
+    console.log(collection,data)
 })
+collection.fetch()
