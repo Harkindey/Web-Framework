@@ -1,5 +1,4 @@
-export type Callback = ()=>void
-
+export type Callback = (cbOject?:any)=>void
 export class Eventing{
     events: { [key:string]: Callback[]} = {};
     on=(eventName:string, callback: Callback): void =>{
@@ -15,8 +14,10 @@ export class Eventing{
             handlers.push(callback);
             this.events[eventName] = handlers;
         }
+
+     
     
-        trigger =(eventName: string):void =>{
+        trigger =(eventName: string, eventObject: any):void =>{
             const handlers = this.events[eventName];
     
             if(!handlers || handlers.length=== 0){
@@ -24,7 +25,7 @@ export class Eventing{
             }
     
             handlers.forEach(callback=>{
-                callback();
+                callback(eventObject);
             })
         }
 }
