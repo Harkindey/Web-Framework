@@ -1,5 +1,6 @@
 import { ApiSync } from "./ApiSync";
 import { Attributes } from "./Attributes";
+import { Collections } from "./Collection";
 import { Eventing } from "./Eventing";
 import { Model } from "./Model";
 
@@ -17,6 +18,13 @@ export class User extends Model<UserProps> {
             new Eventing(),
             new ApiSync<UserProps>(rootUrl)
         )
+    }
+
+    static buildUserCollection(): Collections<User, UserProps>{
+        return new Collections<User,UserProps>(
+            rootUrl,
+            (json: UserProps)=> User.buildUser(json)
+            )
     }
 
     isAdminUser(): boolean {
