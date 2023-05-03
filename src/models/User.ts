@@ -14,5 +14,4 @@ export class User {
     public events: Eventing = new Eventing()
     public sync: Sync<UserProps> = new Sync<UserProps>(rootUrl)
     public attributes:Attributes<UserProps> = new Attributes<UserProps>({id:5, name:'Bean', age:27})
-
 }
