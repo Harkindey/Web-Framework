@@ -26,4 +26,12 @@ export class User {
     get on(){
         return this.events.on; // return a reference to the function
     }
+
+    get trigger(){
+        return this.events.trigger
+    }
+
+    get get(){
+        return this.attributes.get
+    }
 }
